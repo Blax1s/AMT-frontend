@@ -65,7 +65,7 @@ const Subjects = () => {
           ${( subs.reduce((acc, curr) => acc + parseFloat(curr.percent), 0) / subs.length
           ).toFixed(2)}
         %`}</h2>
-        <BarGraph />
+        <BarGraph goal={goal} />
         <PieGraph />
       </div>
     </div>

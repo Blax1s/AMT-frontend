@@ -3,7 +3,7 @@ import { AttendContext } from "../contexts/AttendContext"; // Context API
 import ReactECharts from "echarts-for-react";
 import { useNavigate } from "react-router-dom";
 
-const BarGraph = () => {
+const BarGraph = ({goal}) => {
   const context = useContext(AttendContext);
   const { subs, fetchSubs } = context;
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ const BarGraph = () => {
         return {
           value: sub.subject,
           textStyle: {
-            color: sub.percent > 75 ? "#00A859" : "#FF4136",
+            color: sub.percent >= goal ? "#00A859" : "#FF4136",
             fontWeight: 500,
             fontSize: 16,
           },
@@ -56,7 +56,7 @@ const BarGraph = () => {
           return {
             value: sub.percent,
             itemStyle: {
-              color: sub.percent > 75 ? "#00A859" : "#FF4136",
+              color: sub.percent >= goal ? "#00A859" : "#FF4136",
               opacity: 0.8,
             },
           };

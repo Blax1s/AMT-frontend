@@ -20,15 +20,15 @@ const SubItem = ({sub,goal}) => {
 
   // Present 
   const handlePresent = () => {
-    const updatedPresent = sub.present + 1;
-    const updatedClasses = sub.classes + 1;
+    const updatedPresent = parseFloat(sub.present) + 1;
+    const updatedClasses = parseFloat(sub.classes) + 1;
     const updatedPercent = ((updatedPresent / updatedClasses) * 100).toFixed(2);
     updateSub(sub._id, sub.subject, updatedPresent, updatedClasses, updatedPercent);
   }
 
   // Absent
   const handleAbsent = () => {
-    const updatedClasses = sub.classes + 1;
+    const updatedClasses = parseFloat(sub.classes) + 1;
     const updatedPercent = ((sub.present / updatedClasses) * 100).toFixed(2);
     updateSub(sub._id, sub.subject, sub.present, updatedClasses, updatedPercent);
   }
